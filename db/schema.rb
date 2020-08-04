@@ -42,10 +42,12 @@ ActiveRecord::Schema.define(version: 2020_07_30_203012) do
 
   create_table "private_messages", force: :cascade do |t|
     t.text "content"
-    t.bigint "user_id"
+    t.bigint "recipient_id"
+    t.bigint "sender_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_private_messages_on_user_id"
+    t.index ["recipient_id"], name: "index_private_messages_on_recipient_id"
+    t.index ["sender_id"], name: "index_private_messages_on_sender_id"
   end
 
   create_table "tags", force: :cascade do |t|

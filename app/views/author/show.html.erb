@@ -1,19 +1,22 @@
 
-<p><%= "prénom: #{@author.first_name}" %></p>
-
-<p><%= "nom: #{@author.last_name}" %></p>
-
-<p><%= "description: #{@author.description}" %></p>
-
-<p><%= "email: #{@author.email}" %></p>
-
-<p><%= "âge: #{@author.age}" %></p>
-
-<p><%= "ville: #{@author.city.name}" %></p>
+<br>
 
 
-
-
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= "#{@author.first_name} #{@author.last_name}" %> </h5>
+    <p class="card-text"> <%= @author.description %> </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"> <%= @author.email %></li>
+    <li class="list-group-item"> <%= @author.age %></li>
+    <li class="list-group-item"> <%= @author.city.name %></li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Je laisse les liens</a>
+    <a href="#" class="card-link"> si besoin</a>
+  </div>
+</div>
 
 
 

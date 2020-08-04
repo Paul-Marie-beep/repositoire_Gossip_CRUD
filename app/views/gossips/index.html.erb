@@ -1,0 +1,35 @@
+
+<%if @new_gossip %>
+<div class="alert alert-primary" role="alert">
+ Votre potin a bien été enregistré 
+<div/>
+<br>
+
+
+<%end%>  
+
+
+
+
+<% @all_gossips.each do |gos| %>
+
+
+
+
+  <div class="card">
+    <div class="card-header">
+      Potin <%= gos.id %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= gos.title %> </h5>
+      <p class="card-text"> <%= gos.user.first_name%> </p>
+     <div > <%= link_to "Voir le potin", gossip_path(gos.id),  class:"btn btn-primary" %> </div>
+  
+    </div>
+  </div>
+  
+  
+  <%end%>
+
+
+

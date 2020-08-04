@@ -1,0 +1,21 @@
+
+
+
+<br>
+
+
+
+
+
+<div class="card">
+  <div class="card-header">
+  <%= @gos.title %>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p> <%= @gos.content %> </p>
+      <footer class="blockquote-footer"> potin crée le <%= @gos.created_at %> par
+      <cite title="Source Title"> <%= link_to " #{@gos.user.first_name}", author_path(@gos.user.id) %> </cite></footer>
+    </blockquote>
+  </div>
+</div>
