@@ -39,12 +39,12 @@ class PotinsController < ApplicationController
   def update
     gossip_chosen
     post_params
-    @gos .update(post_params)
-    
-
-
-
-
+    if @gos.update(@post_params)
+      redirect_to @gos
+      @p = 1
+    else 
+      render :edit
+    end
   end
 
   private
