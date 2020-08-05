@@ -18,12 +18,27 @@
       <footer class="blockquote-footer"> potin crée le <%= @gos.created_at %> par
       <cite title="Source Title"> <%= link_to " #{@gos.user.first_name}", author_path(@gos.user.id) %> habitant à <%= link_to "#{@gos.user.city.name}", city_path(@gos.user.city.id) %> </cite></footer>
     </blockquote>
+    <br>
+    <a href="<%= potin_path(@gos.id) %>" class="btn btn-danger" data-confirm="Êtes-vous sûr de vouloir supprimer le potin?" data-method="DELETE">Supprimer le potin</a>
+
   </div>
 </div>
 
-<a href="<%= potin_path(@gos.id) %>" class="btn btn-danger" data-confirm="Êtes-vous sûr de vouloir supprimer le potin?" data-method="DELETE">Supprimer le potin</a>
 
+<br><br>
 
+<h3> Lire les commentaires </h3>
+
+  <% @gos.comments.each do |com| %>
+  <div class="card">
+  <h5 class="card-header"> <%= com.user.first_name + " " + com.user.last_name%> </h5>
+  <div class="card-body">
+    <! <h5 class="card-title"> <%= com.content %></h5> > <br><br>
+    <p><a href="#" class="btn btn-primary">Modifier le commentaire</a></p>
+  </div>
+</div>
+<br>
+<%end%>
 
 
 
@@ -31,11 +46,10 @@
 <div center>
 <br>
 <%= form_tag potin_comments_path(params[:id]), method: "post" do  %>
-<%= label_tag 'Titre du commentaire :' %><br>
-<%= text_field_tag 'title' %><br><br>
-<%= label_tag 'Commentaire :' %><br>
+<%= label_tag 'Votre commentaire:' %><br>
 <%= text_area_tag 'content'%><br><br>
 <%= submit_tag 'Enregistrer le commentaire'%>
 <% end %>
 <br>
 </div>
+
