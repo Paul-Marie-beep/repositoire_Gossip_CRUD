@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :welcome
 
+  resources :cities
+
 
   get '/team', to: 'team#show'
 
