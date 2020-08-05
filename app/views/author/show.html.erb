@@ -10,7 +10,7 @@
   <ul class="list-group list-group-flush">
     <li class="list-group-item"> <%= @author.email %></li>
     <li class="list-group-item"> <%= @author.age %> ans </li>
-    <li class="list-group-item"> <%= @author.city.name %></li>
+    <li class="list-group-item"> <%= link_to "#{@author.city.name}", city_path(@author.city.id) %></li>
   </ul>
   <div class="card-body">
     <a href="#" class="card-link">Je laisse les liens</a>

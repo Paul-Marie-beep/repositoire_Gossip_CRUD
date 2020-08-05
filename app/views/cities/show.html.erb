@@ -1,2 +1,28 @@
-<h1>Cities#show</h1>
-<p>Find me in app/views/cities/show.html.erb</p>
+<h1> <%= @city.name %> </h1>
+
+
+<h5> Potins écrits par les habitants de cette ville: </h5>
+
+
+
+
+
+<% @all_gossips.each do |gos| %>
+  <% if gos.user.city.id == @city.id %>
+    <div class="list-group">
+      <a href="<%=gossip_path(gos.id)%>" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">  <%= gos.title %> </h5>
+        </div>
+        <p class="mb-1"> Potin écrit par <%= gos.user.first_name %> </p>
+      </a>
+      <br> 
+  <%end%>
+<%end%>      
+  
+
+
+
+
+
+ 
