@@ -46,10 +46,6 @@ class PotinsController < ApplicationController
     end
   end
 
-  def comment
-    
-  end
-
   def destroy
     gossip_chosen
     @gos.destroy

@@ -24,3 +24,18 @@
 <a href="<%= potin_path(@gos.id) %>" class="btn btn-danger" data-confirm="Êtes-vous sûr de vouloir supprimer le potin?" data-method="DELETE">Supprimer le potin</a>
 
 
+
+
+
+
+<div center>
+<br>
+<%= form_tag potin_comments_path(params[:id]), method: "post" do  %>
+<%= label_tag 'Titre du commentaire :' %><br>
+<%= text_field_tag 'title' %><br><br>
+<%= label_tag 'Commentaire :' %><br>
+<%= text_area_tag 'content'%><br><br>
+<%= submit_tag 'Enregistrer le commentaire'%>
+<% end %>
+<br>
+</div>

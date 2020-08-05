@@ -1,6 +1,12 @@
 
 Rails.application.routes.draw do
 
+
+
+  resources :potins do
+    resources :comments 
+  end
+
   resources :potins
 
   resources :author
@@ -8,6 +14,8 @@ Rails.application.routes.draw do
   resources :welcome
 
   resources :cities
+
+
 
 
   get '/team', to: 'team#show'
