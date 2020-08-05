@@ -32,7 +32,7 @@ class GossipsController < ApplicationController
     if @new_gossip.save     #Si la sauvegarde dans la DB se fait alors:
       render "index.html.erb"  #Render renvoie vers une view et garde les params en mémoire afin que nous puissions les utiliser dans le view
     else
-      render "new.html.erb"
+      render "new.html.erb" #Si ça ne marche pas, on te laisse sur la page du formulaire
     end
   end
 
