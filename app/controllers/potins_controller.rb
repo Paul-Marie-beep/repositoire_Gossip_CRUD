@@ -41,10 +41,19 @@ class PotinsController < ApplicationController
     post_params
     if @gos.update(@post_params)
       redirect_to @gos
-      @p = 1
     else 
       render :edit
     end
+  end
+
+  def comment
+    
+  end
+
+  def destroy
+    gossip_chosen
+    @gos.destroy
+    redirect_to potins_path
   end
 
   private
