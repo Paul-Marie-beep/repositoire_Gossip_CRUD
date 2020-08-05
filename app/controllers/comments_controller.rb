@@ -21,10 +21,22 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    
+    @gos = Potin.find(params[:potin_id])
+    @com = Comment.find(params[:id])
   end
 
   def update
+    puts "$" * 60
+    puts params
+    puts "$" * 60
+    @com = Comment.find(params[:id])
+    @post_params = params.require(:com).permit(:content)
+
+    if @com.update(@post_params)
+      redirect_to potin_path(@gos.id)
+    end
+
+
   end
 
   def destroy

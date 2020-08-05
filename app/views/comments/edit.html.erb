@@ -1,0 +1,15 @@
+
+<h1>Modifier un commentaire </h1>
+
+
+
+  <div center>
+  <br>
+  <%= form_tag potin_comment_path(params[:potin_id], params[:id] ), method: "put" do  %>
+  <%= label_tag 'Commentaire' %><br>
+  <%= text_field_tag 'content', @com.content %><br><br>
+  <%= submit_tag 'Modifier le commentaire'%>
+  <% end %>
+  <br>
+  </div>
+  

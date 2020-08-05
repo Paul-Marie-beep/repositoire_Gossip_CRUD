@@ -64,6 +64,7 @@ class PotinsController < ApplicationController
 
   def post_params
     @post_params = params.require(:potin).permit(:title, :content)
+    
   end
 end
 
