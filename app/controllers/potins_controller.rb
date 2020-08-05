@@ -1,4 +1,4 @@
-class GossipsController < ApplicationController
+class PotinsController < ApplicationController
   
   
   def show
@@ -37,6 +37,13 @@ class GossipsController < ApplicationController
 
 
   def update
+    gossip_chosen
+    post_params
+    @gos .update(post_params)
+    
+
+
+
 
   end
 
@@ -50,6 +57,8 @@ class GossipsController < ApplicationController
     @all_gossips = Potin.all
   end
 
- 
+  def post_params
+    @post_params = params.require(:potin).permit(:title, :content)
+  end
 end
 

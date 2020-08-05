@@ -10,7 +10,7 @@
 <% @all_gossips.each do |gos| %>
   <% if gos.user.city.id == @city.id %>
     <div class="list-group">
-      <a href="<%=gossip_path(gos.id)%>" class="list-group-item list-group-item-action">
+      <a href="<%=potin_path(gos.id)%>" class="list-group-item list-group-item-action">
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">  <%= gos.title %> </h5>
         </div>

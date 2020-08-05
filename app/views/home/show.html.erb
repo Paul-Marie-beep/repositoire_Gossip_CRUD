@@ -39,7 +39,7 @@
     <div class="container">
       <h1 class="display-3">The Gossip Project!</h1>
       <p>Le site que vous attendiez pour dire du mal des gens!</p>
-      <p><a class="btn btn-primary btn-lg" href="<%= gossips_path %>" role="button">Voir tous les potins &raquo;</a></p>
+      <p><a class="btn btn-primary btn-lg" href="<%= potins_path %>" role="button">Voir tous les potins &raquo;</a></p>
     </div>
   </div>
 
@@ -50,12 +50,12 @@
       <div class="col-md-6">
         <h2> <%= @potin_exemple_1.title %> </h2>
         <p> <%= @potin_exemple_1.content %> </p>
-        <p> <%= link_to "Voir le potin", gossip_path(@potin_exemple_1.id), class: "btn btn-secondary" %> </p>
+        <p> <%= link_to "Voir le potin", potin_path(@potin_exemple_1.id), class: "btn btn-secondary" %> </p>
       </div>
       <div class="col-md-6">
         <h2> <%= @potin_exemple_2.title %> </h2>
         <p> <%= @potin_exemple_2.content %> </p>
-        <p> <%= link_to "Voir le potin", gossip_path(@potin_exemple_2.id), class: "btn btn-secondary" %> </p>
+        <p> <%= link_to "Voir le potin", potin_path(@potin_exemple_2.id), class: "btn btn-secondary" %> </p>
       </div>
       
     </div>
