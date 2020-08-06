@@ -4,10 +4,6 @@ class SessionsController < ApplicationController
 
   def create
 
-    puts "$"*60
-    puts params
-    puts "$"*60
-
      # cherche s'il existe un utilisateur en base avec l’e-mail
     user = User.find_by(email: params[:email])
 
@@ -25,5 +21,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session.delete(:user_id)
   end
 end
