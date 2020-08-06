@@ -35,8 +35,8 @@ class CommentsController < ApplicationController
     puts params
     puts "$" * 60
     @com = Comment.find(params[:id])
-    @post_params = params.require(:com).permit(:content)
-
+    @post_params = {content: params[:content]}
+    @gos = Potin.find(params[:potin_id])
     if @com.update(@post_params)
       redirect_to potin_path(@gos.id)
     end
@@ -45,7 +45,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    delete(@com)
+    @com = Comment.find(params[:id])
+    @gos = Potin.find(params[:potin_id])
+
+    @com.destroy
     redirect_to potin_path(@gos.id)
 
   end
@@ -61,6 +64,7 @@ class CommentsController < ApplicationController
 
   def authenticate_comment_author #Une personne ne peut modifier / détruire que ses propres commentaires
     @com = Comment.find(params[:id])
+    @gos = Potin.find(params[:potin_id])
     unless current_user == @com.user
       flash[:danger] = "Vous ne pouvez pas modifier ou supprimer un commentaire dont vous n'êtes pas l'auteur"
       redirect_to potin_path(@gos.id)
