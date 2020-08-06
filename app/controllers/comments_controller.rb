@@ -60,8 +60,8 @@ class CommentsController < ApplicationController
   end
 
   def authenticate_comment_author #Une personne ne peut modifier / détruire que ses propres commentaires
-    @gos = Potin.find(params[:potin_id])
-    unless current_user == @gos.user
+    @com = Comment.find(params[:id])
+    unless current_user == @com.user
       flash[:danger] = "Vous ne pouvez pas modifier ou supprimer un commentaire dont vous n'êtes pas l'auteur"
       redirect_to potin_path(@gos.id)
     end
