@@ -47,6 +47,7 @@ class CommentsController < ApplicationController
   def destroy
     delete(@com)
     redirect_to potin_path(@gos.id)
+
   end
 
   private
