@@ -3,9 +3,12 @@ Rails.application.routes.draw do
 
 
 
-
   resources :potins do
     resources :comments 
+  end
+
+  resources :potins do
+    resources :likes
   end
 
   resources :potins
