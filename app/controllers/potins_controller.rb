@@ -1,5 +1,7 @@
 class PotinsController < ApplicationController
   before_action :authenticate_user, only: [:show, :new, :create]
+  before_action :authenticate_gossip_author, only: [:destroy]
+
 
   
   def show
@@ -77,6 +79,15 @@ class PotinsController < ApplicationController
       redirect_to new_session_path
     end
   end
+
+  def authenticate_gossip_author #Une personne ne peut  détruire que ses propres potins
+    @gos = Potin.find(params[:id])
+    unless current_user == @gos.user
+      flash[:danger] = "Vous ne pouvez pas supprimer un potin dont vous n'êtes pas l'auteur"
+      redirect_to potin_path(@gos.id)
+    end
+  end
+
 
 end
 

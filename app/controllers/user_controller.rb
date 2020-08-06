@@ -17,7 +17,7 @@ class UserController < ApplicationController
     @new_author.age = params[:age] 
     if @new_author.save
       #Pour le flash, il faut rajouter une ligne de code dans le fichier view application.html.rb
-      session[:user_id] = @new_author.id #Gros doute pour le moment. Ça m'étonnerait que ça marche mais pas d'erreur détectée ???
+      log_in(@new_author) #On connect le type qui vient de créer son profil
       flash[:success] = "Profil utilisateur bien créé: vous êtes désormais connecté"
       redirect_to root_path
     else

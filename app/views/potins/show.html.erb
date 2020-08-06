@@ -37,6 +37,9 @@
   <div class="card-body">
     <h5 class="card-title"> <%= com.content %></h5> > <br><br>
     <p> <%= link_to "Modifier le commentaire", edit_potin_comment_path(@gos.id, com.id), class: "btn btn-primary" %>
+    <%= link_to "Supprimer le commentaire", potin_comment_path(@gos.id, com.id), method: :delete, class: "btn btn-danger" %>
+    </p>
+
   </div>
 </div>
 <br>
