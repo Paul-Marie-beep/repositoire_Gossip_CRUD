@@ -10,9 +10,6 @@ class UserController < ApplicationController
   end
 
   def create
-    puts "$" * 60
-    puts params
-    puts "$" * 60
 
     @new_author = User.new(first_name: params[:first_name], last_name: params[:last_name], 
     email: params[:email], description: params[:description], password: params[:password])

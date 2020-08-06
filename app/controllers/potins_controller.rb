@@ -1,5 +1,6 @@
 class PotinsController < ApplicationController
-  
+  before_action :authenticate_user, only: [:show, :new, :create]
+
   
   def show
     gossip_chosen
@@ -10,8 +11,9 @@ class PotinsController < ApplicationController
   end
 
   def new
-        # Méthode qui crée un potin vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
-   @new_gossip = Potin.new() #Cette ligne est important car, pour la première fois, elle fournit un nouveau potin sans erreur à la view, qui vérifie que c'est bien le cas.
+    # Méthode qui crée un potin vide et l'envoie à une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
+    @new_gossip = Potin.new() #Cette ligne est important car, pour la première fois, elle fournit un nouveau potin sans erreur à la view, qui vérifie que c'est bien le cas.
+
   end
 
   def create
@@ -19,15 +21,17 @@ class PotinsController < ApplicationController
     # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
     # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
 
-   all_gossips #On le remet pour que la view index, qui en a besoin, puisse afficher ce qu'elle doit afficher
+      all_gossips #On le remet pour que la view index, qui en a besoin, puisse afficher ce qu'elle doit afficher
 
-    @new_gossip = Potin.new(title: params[:title],content: params[:content])
-    @new_gossip.user = User.first
-    if @new_gossip.save     #Si la sauvegarde dans la DB se fait alors:
-      render "index.html.erb"  #Render renvoie vers une view et garde les params en mémoire afin que nous puissions les utiliser dans le view
-    else
-      render "new.html.erb" #Si ça ne marche pas, on te laisse sur la page du formulaire
-    end
+        @new_gossip = Potin.new(title: params[:title],content: params[:content])
+        @new_gossip.user = current_user #Le créateur du gossip sera la personne qui est actuellement connectée
+        if @new_gossip.save     #Si la sauvegarde dans la DB se fait alors:
+          render "index.html.erb"  #Render renvoie vers une view et garde les params en mémoire afin que nous puissions les utiliser dans le view
+        else
+          render "new.html.erb" #Si ça ne marche pas, on te laisse sur la page du formulaire
+        end
+
+
   end
 
 
@@ -66,5 +70,13 @@ class PotinsController < ApplicationController
     @post_params = params.require(:potin).permit(:title, :content)
     
   end
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Merci de vous connecter"
+      redirect_to new_session_path
+    end
+  end
+
 end
 

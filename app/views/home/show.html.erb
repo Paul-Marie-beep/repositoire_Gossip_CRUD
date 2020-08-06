@@ -47,15 +47,21 @@
     <!-- Example row of columns -->
     <div class="row">
 
-      <div class="col-md-6">
+      <div class="col-md-4">
         <h2> <%= @potin_exemple_1.title %> </h2>
         <p> <%= @potin_exemple_1.content %> </p>
         <p> <%= link_to "Voir le potin", potin_path(@potin_exemple_1.id), class: "btn btn-secondary" %> </p>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <h2> <%= @potin_exemple_2.title %> </h2>
         <p> <%= @potin_exemple_2.content %> </p>
         <p> <%= link_to "Voir le potin", potin_path(@potin_exemple_2.id), class: "btn btn-secondary" %> </p>
+      </div>
+
+      <div class="col-md-4">
+        <h2> Vous voulez dire du mal? </h2>
+        <p> Lancez-vous !  </p>
+        <p> <%= link_to "Créez un potin", new_potin_path, class: "btn btn-success" %> </p>
       </div>
       
     </div>

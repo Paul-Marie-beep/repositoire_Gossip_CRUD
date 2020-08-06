@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "Vous êtes connecté"
+    
       redirect_to root_path
 
     else
@@ -22,5 +23,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete(:user_id)
+    redirect_to root_path
   end
+  
 end
