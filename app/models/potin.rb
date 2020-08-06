@@ -11,4 +11,5 @@ class Potin < ApplicationRecord
   has_many :comments
   has_many :join_user_potins
   has_many :tags, through: :join_user_potins
+  has_many :likes
 end
