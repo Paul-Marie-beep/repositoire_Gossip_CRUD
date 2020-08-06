@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
 
 
- 
 
   resources :potins do
     resources :comments 
@@ -17,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :cities
 
+  resources :sessions, only: [:new, :create, :destroy]
+
 
 
 
@@ -28,7 +29,6 @@ Rails.application.routes.draw do
   get'/contact', to: 'contact#show'
   
 
-  root 'home#show'  #Il faut le remplacer par index ????
-
+  root 'home#show'  
 end
 
