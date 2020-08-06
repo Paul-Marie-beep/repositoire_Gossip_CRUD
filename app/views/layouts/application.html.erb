@@ -29,9 +29,12 @@
      <li class="nav-item">
        <%= link_to "Contact", contact_path, class:"nav-link" %>
      </li class="nav-item">
+     <li class="nav-item">
       <%= link_to "Team", team_path, class: "nav-link" %>
-     <li> 
-     </li>
+      </li class="nav-item">
+      <li class="nav-item active">
+      <a class="nav-link" href=" <%= new_user_path %>">Inscrivez-vous! <span class="sr-only">(current)</span></a>
+    </li>
    </ul>
  </div>
 </nav> 
@@ -43,5 +46,13 @@
 
 
     <%= yield %>
+
+    <% flash.each do |key, value| %>
+      <button type="button" class="btn btn-light">
+      <div class="flash <%= key %>"><%= value %></div>
+    <% end %>
+    </button>
+
   </body>
+
 </html>

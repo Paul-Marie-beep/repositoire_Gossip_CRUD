@@ -3,17 +3,20 @@ Rails.application.routes.draw do
 
 
 
+ 
+
   resources :potins do
     resources :comments 
   end
 
   resources :potins
 
-  resources :author
+  resources :user
 
   resources :welcome
 
   resources :cities
+
 
 
 

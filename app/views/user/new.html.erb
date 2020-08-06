@@ -1,0 +1,25 @@
+<center> <h1> Inscription d'un nouvel utilisateur </h1>
+
+
+<center>
+<br>
+<%= form_tag url_for(action:'create'), method: "post" do %>
+<%= label_tag 'Prénom :' %><br>
+<%= text_field_tag 'first_name' %><br><br>
+<%= label_tag 'Nom :' %><br>
+<%= text_field_tag 'last_name' %><br><br>
+<%= label_tag 'email:' %><br>
+<%= text_field_tag 'email' %><br><br>
+<%= label_tag 'Âge:' %><br>
+<%= text_field_tag 'age' %><br><br>
+<%= label_tag 'Ville:' %><br>
+<%= text_field_tag 'city' %><br><br>
+<%= label_tag 'description :' %><br>
+<%= text_area_tag 'description'%><br><br>
+<%= label_tag 'Mot de passe (plus de 6 caractères) :' %><br>
+<%= text_field_tag 'password' %><br><br>
+<%= submit_tag 'Créer votre profil'%>
+<% end %>
+<br>
+
+
