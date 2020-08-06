@@ -21,8 +21,10 @@
       <cite title="Source Title"> <%= link_to " #{@gos.user.first_name}", user_path(@gos.user.id) %> habitant à <%= link_to "#{@gos.user.city.name}", city_path(@gos.user.city.id) %> </cite></footer>
     </blockquote>
     <br>
+    <% if current_user == @gos.user %> <! #Pour que seul l'auteur du potin puisse le modifier ou le supprimer >
     <a href="<%= potin_path(@gos.id) %>" class="btn btn-danger" data-confirm="Êtes-vous sûr de vouloir supprimer le potin?" data-method="DELETE">Supprimer le potin</a>
-
+    <a href="<%= edit_potin_path(@gos.id) %>" class="btn btn-warning" >Modifier le potin</a>
+    <%end%>
   </div>
 </div>
 

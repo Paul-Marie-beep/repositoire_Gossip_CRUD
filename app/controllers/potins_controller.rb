@@ -1,6 +1,6 @@
 class PotinsController < ApplicationController
   before_action :authenticate_user, only: [:show, :new, :create]
-  before_action :authenticate_gossip_author, only: [:destroy]
+  before_action :authenticate_gossip_author, only: [:destroy, :edit, :update]
 
 
   
